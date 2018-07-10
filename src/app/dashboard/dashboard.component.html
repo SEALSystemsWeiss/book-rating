@@ -1,3 +1,12 @@
-<br-book
+<!-- <br-book
     *ngFor="let b of books"
    [book]="b">  </br-book>
+-->
+
+<ng-container *ngFor="let b of books; index as i; even as e">
+  <div [ngClass]="{ isEven: e, blubb: true }">
+{{ i + 1 }}.
+<br-book [book]="b">
+</br-book>
+  </div>
+</ng-container>
