@@ -5,7 +5,7 @@
 
 <ng-container *ngFor="let b of books; index as i; even as e">
   <div [ngClass]="{ isEven: e, blubb: true }">
-{{ i + 1 }}.
+
 <br-book [book]="b">
 </br-book>
   </div>
