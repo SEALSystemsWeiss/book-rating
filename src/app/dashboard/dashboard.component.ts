@@ -12,6 +12,15 @@ export class DashboardComponent implements OnInit {
 
   reorderBooks(book: Book) {
     console.log('Zur Info:', book);
+    this.books = this.books
+      .map(b => b.isbn === book.isbn ? book : b)
+      .sort((a, b) => b.rating - a.rating);
+
+
+      /* // Option
+      const cleanedlist = this.books.filter(b=> b.isbn !== book.isbn);
+      this.books = [...cleanedlist, book]
+      .sort((a,b) => b.rating - a.rating); */
   }
 
   ngOnInit() {
@@ -31,7 +40,7 @@ export class DashboardComponent implements OnInit {
       isbn: '283740327',
       title: 'Perl',
       description: 'Hicks',
-      rating: 999
+      rating: 4
     }];
   }
 
