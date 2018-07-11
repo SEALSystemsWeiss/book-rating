@@ -14,6 +14,9 @@ export class BookComponent {
   @Input() book: Book = {} as Book;
   @Output() rate = new EventEmitter<Book>(true);
 
+  //  synchron
+  //  @Output() rate = new EventEmitter<Book>();
+
 
   constructor(private rs: BookRatingService) {
   }
@@ -21,12 +24,10 @@ export class BookComponent {
   rateUp() {
     const rateBook = this.rs.rateUp(this.book);
     this.rate.emit(rateBook);
-    this.book = rateBook;
   }
 
   rateDown() {
     const rateBook = this.rs.rateDown(this.book);
     this.rate.emit(rateBook);
-    this.book = rateBook;
   }
 }
