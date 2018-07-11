@@ -10,6 +10,10 @@ export class DashboardComponent implements OnInit {
 
   books: Book[]; // Array<string>
 
+  reorderBooks(book: Book) {
+    console.log('Zur Info:', book);
+  }
+
   ngOnInit() {
     this.books = [{
       isbn: '9389',

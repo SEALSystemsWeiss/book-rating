@@ -11,7 +11,7 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent//, DashboardComponent
+        AppComponent// DashboardComponent
       ],
       schemas: [
         NO_ERRORS_SCHEMA
