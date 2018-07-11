@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookComponent } from './book.component';
 import { BookRatingService } from '../shared/book-rating.service';
+import { By } from '@angular/platform-browser';
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -44,6 +45,12 @@ describe('BookComponent', () => {
 
   it('should forward the rateUp call to the servcie', () => {
     component.rateUp();
+    expect(ratingMock.rateUp).toHaveBeenCalled();
+  });
+
+  it('should call the service if the Button is clicked', () => {
+    const rateUpButton = fixture.debugElement.query(By.css('[testRateUpButton]')).nativeElement as HTMLButtonElement;
+    rateUpButton.click();
     expect(ratingMock.rateUp).toHaveBeenCalled();
   });
 });
