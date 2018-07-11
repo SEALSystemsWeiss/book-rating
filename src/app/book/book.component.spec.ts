@@ -8,12 +8,16 @@ describe('BookComponent', () => {
   let fixture: ComponentFixture<BookComponent>;
 
   // smalllest possible Mock
-  let hasBeenCalled = false;
   const ratingMock = {
-    rateUp: () => hasBeenCalled = true,
+    rateUp: () => { }
   };
 
   beforeEach(async(() => {
+
+    spyOn(ratingMock, 'rateUp');
+    // spyOn(ratingMock, 'rateUp').and.callThrough();
+    // spyOn(ratingMock, 'rateUp').and.returnValue(42);
+
     TestBed.configureTestingModule({
       declarations: [BookComponent],
       providers: [{
@@ -40,6 +44,6 @@ describe('BookComponent', () => {
 
   it('should forward the rateUp call to the servcie', () => {
     component.rateUp();
-    expect(hasBeenCalled).toBe(true);
+    expect(ratingMock.rateUp).toHaveBeenCalled();
   });
 });
