@@ -10,6 +10,7 @@ export class BookRatingService {
   private minRating = 1;
   private maxRating = 5;
 
+// Lösungsansatz: https://angular.schule/blog/2018-03-pure-immutable-operations
 rateUp(book: Book): Book {
   return {
     ...book,

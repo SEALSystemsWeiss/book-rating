@@ -8,6 +8,7 @@ import { Book } from '../shared/book';
 })
 export class BookComponent {
 
-  @Input() book: Book;
+  // fixes cross side error from chrome
+  @Input() book: Book = {} as Book;
 
 }
