@@ -7,10 +7,13 @@ import { Book } from './book';
 })
 export class BookRatingService {
 
+  private minRating = 1;
+  private maxRating = 5;
+
 rateUp(book: Book): Book {
   return {
     ...book,
-    rating: Math.min(book.rating + 1, 5)
+    rating: Math.min(book.rating + 1, this.maxRating)
   };
 
 }
@@ -18,7 +21,8 @@ rateUp(book: Book): Book {
 rateDown(book: Book): Book {
   return {
     ...book,
-    rating: Math.max(book.rating - 1, 1)
+    rating: Math.max(book.rating - 1, this.minRating)
+    // rating: book.rating > this.minRating ? book.rating -1 : book.rating
   };
 }
 

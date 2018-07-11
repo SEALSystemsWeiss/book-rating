@@ -12,7 +12,7 @@ fdescribe('BookRatingService', () => {
       isbn: '000',
       title: 'Test Book',
       description: 'ABC',
-      rating: 3
+      rating: 3 // we start with 3!!!!
       };
     });
 
