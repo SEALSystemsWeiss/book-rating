@@ -8,8 +8,9 @@ describe('BookComponent', () => {
   let fixture: ComponentFixture<BookComponent>;
 
   // smalllest possible Mock
+  let hasBeenCalled = false;
   const ratingMock = {
-    rateUp: () => { },
+    rateUp: () => hasBeenCalled = true,
   };
 
   beforeEach(async(() => {
@@ -37,7 +38,8 @@ describe('BookComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should forward the rateUp call to the servcie', () => {
+    component.rateUp();
+    expect(hasBeenCalled).toBe(true);
   });
 });
