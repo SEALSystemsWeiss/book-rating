@@ -5,26 +5,37 @@
     <label for="isbn">ISBN</label>
     <input formControlName="isbn" type="text" class="form-control" id="isbn">
 
+    <div class="feedback-red" *ngIf="isInvalid('isbn')">
+      ISBN ist ungültig
+    </div>
+
+    <div class="feedback-red" *ngIf="hasError('isbn', 'required')">
+      Geben sie eine ISBN an
+    </div>
+
+    <div class="feedback-red" *ngIf="hasError('isbn', 'minlength')">
+      Bitte geben Sie mindestens 3 Zeichen an
+    </div>
   </div>
 
   <div class="from-group">
 
     <label for="title">Title</label>
-    <input formControlName="title" type="text" class="form-control" id="title">
+    <input formControlName="title" type="text" class="form-control " id="title">
 
   </div>
 
   <div class="from-group">
 
     <label for="description">Description</label>
-    <textarea formControlName="description" type="text" class="form-control" id="description">
+    <textarea formControlName="description" type="text " class="form-control" id="description">
 
     </textarea>
 
   </div>
 
   <div class="form-group">
-    <button (click)="submitForm()" type="button" class="btn btn-danger">Create</button>
+    <button [disabled]="bookForm.invalid" (click)="submitForm()" type="button" class="btn btn-danger">Create</button>
   </div>
 
 

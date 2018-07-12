@@ -14,6 +14,16 @@ export class CreateBookComponent implements OnInit {
   @Output()
   createBook = new EventEmitter<Book>();
 
+  isInvalid(name: string) {
+    const control = this.bookForm.get(name);
+    return control.invalid && control.dirty;
+  }
+
+  hasError(name: string, errorCode: string) {
+    const control = this.bookForm.get(name);
+    return control.hasError(errorCode) && control.dirty;
+  }
+
   ngOnInit() {
     this.bookForm = new FormGroup({
 
