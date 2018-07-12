@@ -1,15 +1,16 @@
-<br-create-book></br-create-book>
+<br-create-book (createBook)="addBook($event)">
+</br-create-book>
 
 <hr>
 
-<br-book *ngFor="let b of books" [book]="b" (rate)="reorderBooks($event)">
+<br-book *ngFor=" let b of books " [book]="b " (rate)="reorderBooks($event) ">
 </br-book>
 
 <!--
-<ng-container *ngFor="let b of books; index as i; even as e">
-  <div [ngClass]="{ isEven: e, blubb: true }">
+<ng-container *ngFor="let b of books; index as i; even as e ">
+  <div [ngClass]="{ isEven: e, blubb: true } ">
 
-<br-book [book]="b">
+<br-book [book]="b ">
 </br-book>
   </div>
 </ng-container>
