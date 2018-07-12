@@ -16,6 +16,10 @@
     <div class="feedback-red" *ngIf="hasError('isbn', 'minlength')">
       Bitte geben Sie mindestens 3 Zeichen an
     </div>
+
+    <div class="feedback-red" *ngIf="isNumber('isbn', 'pattern')">
+      Bitte nur Nummern eingeben
+    </div>
   </div>
 
   <div class="from-group">

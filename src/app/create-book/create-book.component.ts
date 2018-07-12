@@ -24,12 +24,23 @@ export class CreateBookComponent implements OnInit {
     return control.hasError(errorCode) && control.dirty;
   }
 
+  isNumber(name: string, errorCode: string) {
+    const control = this.bookForm.get(name);
+    return control.hasError(errorCode) && control.dirty;
+  }
+
+  /* isNumber(value: string | number): boolean {
+    return !isNaN(Number(value.toString()));
+  } */
+
+
   ngOnInit() {
     this.bookForm = new FormGroup({
 
       isbn: new FormControl('', [
         Validators.required,
-        Validators.minLength(3)]),
+        Validators.minLength(3),
+        Validators.pattern('[0-9]+')]),
       title: new FormControl('', Validators.required),
       description: new FormControl('')
 
