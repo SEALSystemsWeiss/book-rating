@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'br-dashboard',
@@ -11,6 +12,8 @@ import { BookStoreService } from '../shared/book-store.service';
 export class DashboardComponent implements OnInit {
 
   books: Book[] = []; // Array<string>
+
+  // books$: Observable<Book[]>;
 
   constructor(private bs: BookStoreService) { }
 
@@ -28,6 +31,8 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    /* this.books$ = this.bs.getAll(); */
+
     this.bs.getAll().subscribe(books => this.books = books);
   }
 

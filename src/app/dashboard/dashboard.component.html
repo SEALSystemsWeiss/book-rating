@@ -2,6 +2,19 @@
 </br-create-book>
 
 <hr>
+<!--
+<ng-container *ngIf="books$ | async as bb; else loading">
+
+  <br> Buch 1: {{bb[0].title}}
+  <br> Anzahl der Bücher: {{bb.length + 1}}
+  <br>
+
+</ng-container>
+
+<ng-template #loading>
+  <strong>Buch wird geladen...</strong>
+</ng-template>
+ -->
 
 <br-book *ngFor=" let b of books " [book]="b " (rate)="reorderBooks($event) ">
 </br-book>
