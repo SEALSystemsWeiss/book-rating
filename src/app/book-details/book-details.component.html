@@ -1,9 +1,18 @@
-<h2>
-  <!-- async -->
-  Book #{{ isbn$ | async }}
-</h2>
-<p>
-  book-details works!
-</p>
+<ng-container *ngIf="book$ | async as book">
+
+  Book {{ book.title }}
+
+  <p>
+    {{ book.description }}
+  </p>
+</ng-container>
+
+
+<!-- async -->
+<!-- Book #{{ isbn$ | async }} -->
+
+<!-- <h2>
+Book #{{ book$ | async }?.title}
+</h2> -->
 
 <a routerLink="/dashboard">Dashboard</a>
